@@ -3,165 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINAVOICE Türkiye | Resmi Kurallar</title>
+    <title>MINAVOICE 2026 | RESMİ KURALLAR</title>
     <style>
-        :root { --navy: #002d72; --gold: #fbc02d; --white: #ffffff; --dark: #000; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--navy); color: var(--white); margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        :root { --gold: #fbc02d; --bg: #000000; --card: #121212; --text: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
         
-        /* BAŞLIK */
-        .header { background: rgba(0,0,0,0.5); border-bottom: 4px solid var(--gold); padding: 25px; text-align: center; width: 100%; max-width: 600px; border-radius: 15px; margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; color: var(--gold); text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+        /* ÜST DİL VE BAŞLIK */
+        .top-nav { display: flex; gap: 10px; margin-bottom: 20px; }
+        .lang-btn { border: 2px solid var(--gold); background: none; color: var(--gold); padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 13px; cursor: pointer; }
+        .lang-btn.active { background: var(--gold); color: #000; }
 
-        .container { width: 100%; max-width: 600px; }
+        .main-header { 
+            background: linear-gradient(135deg, #2a52be, #9333ea); 
+            width: 100%; max-width: 500px; padding: 30px 10px; border-radius: 20px; 
+            text-align: center; border: 2px solid var(--gold); box-shadow: 0 0 25px rgba(251, 192, 45, 0.3);
+            margin-bottom: 25px;
+        }
+        .main-header h1 { margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; }
 
-        /* GİRİŞ METNİ */
-        .intro-box { background: rgba(255,255,255,0.1); border-left: 5px solid var(--gold); padding: 20px; border-radius: 10px; margin-bottom: 25px; font-size: 14px; text-align: justify; line-height: 1.6; }
+        .container { width: 100%; max-width: 500px; }
 
-        /* BÖLÜM BAŞLIĞI */
-        .section-header { background: var(--gold); color: var(--navy); padding: 12px; border-radius: 10px; font-weight: 900; text-align: center; margin: 30px 0 20px 0; font-size: 18px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        /* GİRİŞ METNİ KUTUSU */
+        .intro-text { background: var(--card); padding: 20px; border-radius: 12px; margin-bottom: 25px; font-size: 14px; text-align: justify; border-left: 5px solid var(--gold); line-height: 1.6; color: #eee; }
 
-        /* KURAL KARTLARI (Görseldeki Gibi) */
-        .rule-card { background: var(--white); color: var(--dark); border-radius: 15px; margin-bottom: 25px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
-        .rule-no { background: var(--gold); color: var(--navy); padding: 10px 20px; font-weight: 900; font-size: 18px; display: inline-block; border-bottom-right-radius: 15px; }
-        .rule-title { font-weight: 900; padding: 15px; font-size: 16px; border-bottom: 2px solid #eee; display: block; color: var(--navy); text-transform: uppercase; }
-        .rule-content { padding: 20px; font-size: 14px; line-height: 1.7; text-align: justify; white-space: pre-line; }
-        .bold-text { font-weight: 700; color: var(--navy); }
-
-        /* EK HÜKÜMLER */
-        .extra-box { background: rgba(0,0,0,0.4); padding: 25px; border-radius: 15px; border: 1px solid var(--gold); margin-top: 30px; }
-        .extra-title { color: var(--gold); font-weight: 900; font-size: 18px; margin-bottom: 15px; display: block; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 10px; }
-        .extra-text { font-size: 14px; line-height: 1.7; color: #ddd; margin-bottom: 15px; }
-
-        /* ŞİKAYET ADIMLARI (Görseldeki 1-2-3 Tasarımı) */
-        .info-header { background: var(--white); color: var(--navy); padding: 15px; border-radius: 40px; font-weight: 900; text-align: center; margin: 50px 0 25px 0; font-size: 14px; border: 3px solid var(--gold); text-transform: uppercase; }
+        /* KURAL KUTU TASARIMI (MAAŞ TABLOSU STİLİ) */
+        .rule-item { background: var(--card); border-radius: 15px; margin-bottom: 25px; overflow: hidden; border: 2px solid var(--gold); }
+        .rule-header-top { background: var(--gold); color: #000; padding: 12px; font-weight: 900; text-align: center; text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
         
-        .step-item { background: var(--white); color: var(--navy); border-radius: 20px; margin-bottom: 20px; padding: 12px; display: flex; align-items: center; border: 3px solid var(--dark); }
-        .step-num { background: var(--gold); color: var(--navy); width: 55px; height: 55px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; box-shadow: 0 0 15px rgba(251,192,45,0.7); margin-right: 15px; flex-shrink: 0; }
-        .step-text { font-weight: 900; font-size: 13px; text-transform: uppercase; flex: 1; text-align: center; line-height: 1.3; }
+        .rule-info-row { background: #000; padding: 15px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+        .rule-info-label { color: #888; font-size: 11px; text-transform: uppercase; font-weight: bold; }
+        .rule-info-value { color: #fff; font-weight: bold; font-size: 14px; text-align: right; }
 
-        .footer { text-align: center; padding: 50px 20px; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: bold; letter-spacing: 2px; }
+        .rule-status-box { background: var(--gold); color: #000; padding: 15px; text-align: center; }
+        .status-label { font-size: 10px; text-transform: uppercase; font-weight: 900; display: block; opacity: 0.8; }
+        .status-value { font-size: 16px; font-weight: 900; }
+
+        .content-area { padding: 20px; font-size: 14px; line-height: 1.7; color: #ddd; background: #080808; border-top: 1px solid #222; text-align: justify; }
+
+        /* ŞİKAYET ADIMLARI (GÖRSELDEKİ 1-2-3 TASARIMI) */
+        .report-title-box { background: #fff; color: #000; padding: 15px; border-radius: 40px; font-weight: 900; text-align: center; margin: 40px auto 25px; font-size: 14px; border: 4px solid var(--gold); width: 90%; }
+        
+        .step-row { background: #fff; color: #000; border-radius: 15px; margin-bottom: 15px; padding: 10px; display: flex; align-items: center; width: 100%; border: 3px solid #000; box-sizing: border-box; }
+        .step-number { background: var(--gold); color: #000; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; margin-right: 15px; flex-shrink: 0; }
+        .step-message { font-weight: 900; font-size: 13px; text-transform: uppercase; flex: 1; text-align: center; padding-right: 10px; line-height: 1.3; }
+
+        .footer { text-align: center; padding: 60px 20px; color: #444; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>MINAVOICE KURALLARI</h1>
+    <div class="top-nav">
+        <button class="lang-btn active">TR 🇹🇷</button>
+        <button class="lang-btn">AZ 🇦🇿</button>
+    </div>
+
+    <div class="main-header">
+        <h1>MINAVOICE 2026<br>RESMİ DAVRANIŞ KURALLARI</h1>
     </div>
 
     <div class="container">
-        <div class="intro-box">
+        <div class="intro-text">
             MINAVOICE yönetimi olarak, kuruluşumuzdan bu yana belirlenen ilkelere sıkı sıkıya bağlı kalmakta ve ilgili standartlara tam uyum sağlamaktayız. Uygulamamızın yayına girdiği ilk günden itibaren yürürlükteki kuralları eksiksiz bir şekilde uygulamaktayız. Tüm kullanıcılarımızın sağlıklı ve güvenli bir ortamın korunmasına katkıda bulunmasını ve mevcut kurallara titizlikle uymasını önemle hatırlatırız.
         </div>
 
-        <div class="section-header">1. GENEL İÇERİK KURALLARI</div>
-        <p style="text-align:center; font-size:13px; margin-bottom:20px; color:#ccc;">Aşağıdaki kurallar, platformun tüm alanlarında (odalar, paylaşımlar, özel sohbetler vb.) geçerlidir:</p>
+        <p style="text-align:center; color:var(--gold); font-weight:900; margin: 30px 0; font-size: 18px; text-transform: uppercase;">1. Genel İçerik Kuralları</p>
 
-        <div class="rule-card">
-            <span class="rule-no">1.1</span>
-            <span class="rule-title">Pornografi ve Cinsel İma İçerikleri Yasaktır</span>
-            <div class="rule-content">
-<span class="bold-text">Her türlü pornografik içeriğe yasak:</span> Platform, her türlü pornografik içeriği, çıplaklık, müstehcenlik, cinsel ima veya cinsel ticaretle ilgili içerikleri kesinlikle yasaklamaktadır. İhlal durumunda hesaplar askıya alınabilir.
-
-<span class="bold-text">Teşvik ve Yardım Yasaktır:</span> Yetişkin sitelerinin bağlantılarını paylaşmak veya uygunsuz hizmetler sağlamak yasaktır.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.1</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">CİNSEL İÇERİK</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">PORNOGRAFİ VE CİNSEL İMA YASAKTIR</span>
+            </div>
+            <div class="content-area">
+                <b>Her türlü pornografik içeriğe yasak:</b> Platform, her türlü pornografik içeriği, çıplaklık, müstehcenlik, cinsel ima veya cinsel ticaretle ilgili içerikleri kesinlikle yasaklamaktadır. İhlal durumunda hesaplar askıya alınabilir.<br><br>
+                <b>Teşvik ve Yardım Yasaktır:</b> Yetişkin sitelerinin bağlantılarını paylaşmak veya uygunsuz hizmetler sağlamak yasaktır.
             </div>
         </div>
 
-        <div class="rule-card">
-            <span class="rule-no">1.2</span>
-            <span class="rule-title">Taciz ve Hakaret İçerikleri Yasaktır</span>
-            <div class="rule-content">
-<span class="bold-text">Sözlü Saldırılar Yasaktır:</span> Aşağılayıcı, küfürlü veya başkalarını küçümseyen ifadeler (ırk, cinsiyet, din, milliyet ayrımcılığı dahil) yasaktır.
-
-<span class="bold-text">Kışkırtma ve Provokasyon:</span> Başkalarını tahrik etmek veya canlı yayınlarda kötü niyetli rekabet yaratmak ciddi bir ihlaldir.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.2</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">TACİZ VE HAKARET</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">SÖZLÜ SALDIRI YASAKTIR</span>
+            </div>
+            <div class="content-area">
+                <b>Sözlü Saldırılar Yasaktır:</b> Aşağılayıcı, küfürlü veya başkalarını küçümseyen ifadeler (ırk, cinsiyet, din, milliyet ayrımcılığı dahil) yasaktır.<br><br>
+                <b>Kışkırtma ve Provokasyon:</b> Başkalarını tahrik etmek veya canlı yayınlarda kötü niyetli rekabet yaratmak ciddi bir ihlaldir.
             </div>
         </div>
 
-        <div class="rule-card">
-            <span class="rule-no">1.3</span>
-            <span class="rule-title">Gizliliği İhlal Etme ve Uygunsuz İçerik Yayma Yasaktır</span>
-            <div class="rule-content">
-<span class="bold-text">Özel Verilerin Korunması:</span> İzinsiz fotoğraf/video paylaşımı, telefon numarası, adres veya konum bilgilerinin dağıtılması yasaktır.
-
-<span class="bold-text">Kötü İçerikler:</span> Seks, fuhuş ilanları ve şiddet içerikli her türlü yayılım yasaktır.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.3</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">GİZLİLİK İHLALİ</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">ÖZEL VERİ DAĞITIMI YASAKTIR</span>
+            </div>
+            <div class="content-area">
+                <b>Özel Verilerin Korunması:</b> İzinsiz fotoğraf/video paylaşımı, telefon numarası, adres veya konum bilgilerinin dağıtılması yasaktır.<br><br>
+                <b>Kötü İçerikler:</b> Seks, fuhuş ilanları ve şiddet içerikli her türlü yayılım yasaktır.
             </div>
         </div>
 
-        <div class="rule-card">
-            <span class="rule-no">1.4</span>
-            <span class="rule-title">Çocukları Koruma</span>
-            <div class="rule-content">
-<span class="bold-text">İstismar ve Sömürü:</span> Çocuk istismarına yönelik içerikler kalıcı yasaklanma ve yasal işlem sebebidir.
-
-<span class="bold-text">Zararlı Faaliyetler:</span> Çocukları yaşlarına uygun olmayan (kumar, uyuşturucu vb.) eylemlere teşvik etmek yasaktır.
-
-<span class="bold-text">Cinsel İçerikler:</span> Çocuk pornografisine odaklanan her türlü içerik doğrudan adli mercilere bildirilir.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.4</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">ÇOCUKLARI KORUMA</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">İSTİSMAR VE SÖMÜRÜ YASAKTIR</span>
+            </div>
+            <div class="content-area">
+                <b>İstismar ve Sömürü:</b> Çocuk istismarına yönelik içerikler kalıcı yasaklanma ve yasal işlem sebebidir.<br><br>
+                <b>Zararlı Faaliyetler:</b> Çocukları yaşlarına uygun olmayan (kumar, uyuşturucu vb.) eylemlere teşvik etmek yasaktır.<br><br>
+                <b>Cinsel İçerikler:</b> Çocuk pornografisine odaklanan her türlü içerik doğrudan adli mercilere bildirilir.
             </div>
         </div>
 
-        <div class="rule-card">
-            <span class="rule-no">1.5</span>
-            <span class="rule-title">Şiddet, Uyuşturucu ve Terörizmle İlgili Faaliyetler Yasaktır</span>
-            <div class="rule-content">
-<span class="bold-text">Terörizm ve Şidd:</span> Şiddet tehditleri, yasa dışı organizasyonlar ve propaganda materyalleri yasaktır.
-
-<span class="bold-text">Uyuşturucu:</span> Her türlü uyuşturucu madde kullanımı, satışı veya reklamı yasaktır.
-
-<span class="bold-text">Dolandırıcılık:</span> Yanlış reklam, sahte işlem, kripto para ile kara para aklama eylemleri yasaktır.
-
-<span class="bold-text">Tehlikeli Kodlar:</span> Virüs veya zararlı yazılım yayılması yasaktır.
-
-<span class="bold-text">Kendine Zarar Verme:</span> İntihar veya kendine zarar vermeyi teşvik eden içerikler yasaktır.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.5</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">ŞİDDET VE YASA DIŞI</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">TERÖR VE UYUŞTURUCU YASAKTIR</span>
+            </div>
+            <div class="content-area">
+                <b>Terörizm ve Şiddet:</b> Şiddet tehditleri, yasa dışı organizasyonlar ve propaganda materyalleri yasaktır.<br><br>
+                <b>Uyuşturucu:</b> Her türlü uyuşturucu madde kullanımı, satışı veya reklamı yasaktır.<br><br>
+                <b>Dolandırıcılık:</b> Yanlış reklam, sahte işlem, kripto para ile kara para aklama eylemleri yasaktır.<br><br>
+                <b>Tehlikeli Kodlar:</b> Virüs veya zararlı yazılım yayılması yasaktır.<br><br>
+                <b>Kendine Zarar Verme:</b> İntihar veya kendine zarar vermeyi teşvik eden içerikler yasaktır.
             </div>
         </div>
 
-        <div class="rule-card">
-            <span class="rule-no">1.6</span>
-            <span class="rule-title">Kumar İle İlgili Kurallar</span>
-            <div class="rule-content">
-<span class="bold-text">Her Türlü Kumar Yasaktır:</span> Bahis, piyango, poker, casino oyunları (gerçek veya sanal para fark etmeksizin) yasaktır.
-
-<span class="bold-text">İçerik ve Reklam:</span> Kumar sitesi bağlantıları paylaşmak, strateji tartışmak veya kumar reklamı yapmak yasaktır.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.6</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">KUMAR KURALLARI</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">HER TÜRLÜ KUMAR YASAKTIR</span>
+            </div>
+            <div class="content-area">
+                <b>Her Türlü Kumar Yasaktır:</b> Bahis, piyango, poker, casino oyunları (gerçek veya sanal para fark etmeksizin) yasaktır.<br><br>
+                <b>İçerik ve Reklam:</b> Kumar sitesi bağlantıları paylaşmak, strateji tartışmak veya kumar reklamı yapmak yasaktır.
             </div>
         </div>
 
-        <div class="rule-card">
-            <span class="rule-no">1.7 - 1.8</span>
-            <span class="rule-title">Diğer Kurallar</span>
-            <div class="rule-content">
-<span class="bold-text">Askeri Üniforma:</span> Onaylı günler dışında askeri veya benzeri kıyafet giyilmesi yasaktır.
-
-<span class="bold-text">Hesap Güvenliği:</span> Hesap satışı, kiralanması veya erişim bilgilerinin paylaşılması yasaktır.
+        <div class="rule-item">
+            <div class="rule-header-top">MADDE 1.7 - 1.8</div>
+            <div class="rule-info-row">
+                <div class="rule-info-label">KATEGORİ</div>
+                <div class="rule-info-value">DİĞER KURALLAR</div>
+            </div>
+            <div class="rule-status-box">
+                <span class="status-label">UYGULAMA</span>
+                <span class="status-value">ÜNİFORMA VE HESAP GÜVENLİĞİ</span>
+            </div>
+            <div class="content-area">
+                <b>Askeri Üniforma:</b> Onaylı günler dışında askeri veya benzeri kıyafet giyilmesi yasaktır.<br><br>
+                <b>Hesap Güvenliği:</b> Hesap satışı, kiralanması veya erişim bilgilerinin paylaşılması yasaktır.
             </div>
         </div>
 
-        <div class="extra-box">
-            <span class="extra-title">3. EK HÜKÜMLER</span>
-            <div class="extra-text">
-                <span class="bold-text" style="color:var(--gold);">Türk Hukukuna Uyumu:</span> Bu davranış kuralları, Türk yasaları ve düzenlemeleri ile uyumludur. Platform, yerel hukuki standartlara ve uygulamalara uygunluğu sağlamayı taahhüt eder.
-            </div>
-            <div class="extra-text">
-                <span class="bold-text" style="color:var(--gold);">Not:</span> MINAVOICE, bu kuralları yerel yasalar ve düzenlemelere göre yorumlama ve uygulama hakkını saklı tutar.
-            </div>
-            <div class="extra-text">
-                <span class="bold-text" style="color:var(--gold);">Ceza Artışı:</span> İhlallerin ciddiyetine ve sıklığına bağlı olarak cezalar artabilir. Kuralları tekrar ihlal eden kullanıcılar hesap askıya alma veya kalıcı yasaklama gibi sonuçlarla karşılaşabilirler.
-            </div>
+        <p style="text-align:center; color:var(--gold); font-weight:900; margin: 30px 0; font-size: 18px; text-transform: uppercase;">3. Ek Hükümler</p>
+        <div class="intro-text" style="background: #1a1a1a; border-left-color: #fff;">
+            <b>Türk Hukukuna Uyumu:</b> Bu davranış kuralları, Türk yasaları ve düzenlemeleri ile uyumludur. Platform, yerel hukuki standartlara ve uygulamalara uygunluğu sağlamayı taahhüt eder.<br><br>
+            <b>Not:</b> MINAVOICE, bu kuralları yerel yasalar ve düzenlemelere göre yorumlama ve uygulama hakkını saklı tutar.<br><br>
+            <b>Ceza Artışı:</b> İhlallerin ciddiyetine ve sıklığına bağlı olarak cezalar artabilir. Kuralları tekrar ihlal eden kullanıcılar hesap askıya alma veya kalıcı yasaklama gibi sonuçlarla karşılaşabilirler.
         </div>
 
-        <div class="info-header">KURAL İHLALİ ZAMANI NELERE DİKKAT ETMELİSİNİZ?</div>
-
-        <div class="step-item">
-            <div class="step-num">1</div>
-            <div class="step-text">SÖZLÜ VE YAZILI OLARAK ŞİKAYET ETMEYİNİZ.</div>
+        <div class="report-title-box">KURAL İHLALİ ZAMANI NELERE DİKKAT ETMELİSİNİZ?</div>
+        
+        <div class="step-row">
+            <div class="step-number">1</div>
+            <div class="step-message">Sözlü ve yazılı olarak şikayet etmeyiniz.</div>
         </div>
 
-        <div class="step-item">
-            <div class="step-num">2</div>
-            <div class="step-text">İHLALİ GÖSTEREN KANIT ALIN (EKRAN VİDEOSU VE EKRAN RESMİ ALIN).</div>
+        <div class="step-row">
+            <div class="step-number">2</div>
+            <div class="step-message">İhlali gösteren kanıt alın (Ekran videosu ve ekran resmi alın).</div>
         </div>
 
-        <div class="step-item">
-            <div class="step-num">3</div>
-            <div class="step-text">İLGİLİ YÖNETİME GÖNDERİN (24 SAAT İÇERİSİNDE İNCELENİR).</div>
+        <div class="step-row">
+            <div class="step-number">3</div>
+            <div class="step-number" style="background: #fff; border: 2px solid var(--gold); color: #000; font-size: 14px;">24H</div>
+            <div class="step-message">İlgili yönetime gönderin (24 saat içerisinde incelenir).</div>
         </div>
 
         <div class="footer">
@@ -169,7 +214,5 @@
             SON GÜNCELLEME TARİHİ: 01.01.2026
         </div>
     </div>
-
 </body>
 </html>
-
